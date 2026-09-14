@@ -1,0 +1,10 @@
+# Dependencias
+/my-app/node_modules/
+/backend/vendor/
+
+# Archivos de entorno (contraseñas locales)
+/backend/.env
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
