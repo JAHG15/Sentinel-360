@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { API_URL as API_BASE_URL } from './api';
 
-const API_URL = 'http://127.0.0.1:8000/api/usuarios';
+const API_URL = `${API_BASE_URL}/usuarios`;
 
 // Obtener todos los usuarios
 export const getUsuarios = async (token) => {

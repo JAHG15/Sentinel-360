@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 import "../assets/Login.css"
 import logo from "../assets/logo.jpg"
 import { AuthContext } from "../contexts/AuthContext"
+import { API_URL } from "../services/api"
 
 export default function Login() {
   const { login } = useContext(AuthContext)
@@ -15,7 +16,7 @@ export default function Login() {
   const loginRequest = async (values) => {
     try {
       const res = await axios.post(
-        "http://127.0.0.1:8000/api/login",
+        `${API_URL}/login`,
         values,
         { headers: { "Content-Type": "application/json" } }
       )

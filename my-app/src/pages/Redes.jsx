@@ -5,6 +5,7 @@ import ModalForm from '../components/ui/ModalForm'
 import TableActions from '../components/ui/TableActions'
 import { AuthContext } from '../contexts/AuthContext'
 import useModal from '../hooks/useModal'
+import { API_URL } from '../services/api'
 
 export default function Redes() {
   const { user, token } = useContext(AuthContext)
@@ -23,7 +24,7 @@ export default function Redes() {
   const loadRedes = async () => {
     setLoading(true)
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/idf', {
+      const res = await fetch(`${API_URL}/idf`, {
         headers: {
           Authorization: `Bearer ${token}`,
           Accept: 'application/json',
@@ -94,7 +95,7 @@ export default function Redes() {
             }}
             onDelete={async () => {
               try {
-                const res = await fetch(`http://127.0.0.1:8000/api/idf/${record.id}`, {
+                const res = await fetch(`${API_URL}/idf/${record.id}`, {
                   method: 'DELETE',
                   headers: {
                     Authorization: `Bearer ${token}`,
@@ -124,7 +125,7 @@ export default function Redes() {
   const handleCreate = async (values) => {
     setConfirmLoading(true)
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/idf', {
+      const res = await fetch(`${API_URL}/idf`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -151,7 +152,7 @@ export default function Redes() {
   const handleUpdate = async (values) => {
     setConfirmLoading(true)
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/idf/${editing.id}`, {
+      const res = await fetch(`${API_URL}/idf/${editing.id}`, {
         method: 'PUT',
         headers: {
           Authorization: `Bearer ${token}`,
